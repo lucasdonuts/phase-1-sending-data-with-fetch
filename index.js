@@ -13,10 +13,11 @@ function submitData(name, email) {
     body: JSON.stringify(userInfo)
   })
     .then(res => res.json())
-    .then((data) => {
+    .then(data => {
+      console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$', data)
       const p = document.createElement('p')
-      p.innerText = data.id
+      p.textContent = data.id
       document.body.append(p)
     })
-    .catch(err => console.log(err.message))
+    .catch(err => document.querySelector('body').append('Unauthorized Access'))
 }
